@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCQ Generator Quiz</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Multiple Choice Quiz Generator</h1>
+
+    <section id="setup-section" class="card">
+      <h2>Create your quiz</h2>
+      <form id="setup-form">
+        <label>
+          Topic
+          <input type="text" id="topic" name="topic" placeholder="e.g. World Geography" required />
+        </label>
+
+        <label>
+          Number of questions
+          <input type="number" id="number" name="number" min="1" max="30" value="5" required />
+        </label>
+
+        <label>
+          Difficulty
+          <select id="difficulty" name="difficulty" required>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+
+        <button type="submit">Generate Quiz</button>
+      </form>
+      <p id="status" class="status" aria-live="polite"></p>
+    </section>
+
+    <section id="quiz-section" class="card hidden">
+      <div class="quiz-header">
+        <h2 id="question-title">Question</h2>
+        <p id="progress"></p>
+      </div>
+      <p id="question-text"></p>
+      <form id="options-form"></form>
+      <div class="actions">
+        <button id="next-btn" type="button" disabled>Next</button>
+      </div>
+    </section>
+
+    <section id="results-section" class="card hidden">
+      <h2>Final score</h2>
+      <p id="score-text"></p>
+      <button id="restart-btn" type="button">Create Another Quiz</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
